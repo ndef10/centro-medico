@@ -1,0 +1,38 @@
+body {        
+    background-color:white;
+    font-size: 20px; 
+    margin-left: 500px;      
+}
+div {
+    margin: auto;
+}
+
+
+
+h4 {
+    font-weight: bold;
+}
+
+table {
+    background-color: rgb(173, 233, 227);
+    padding: 65px;
+}
+
+th {
+    background-color: rgb(22, 114, 105);
+    color: white;
+    text-align: center;
+    padding: 20px 65px;
+}
+
+td {
+    padding: 5px;
+}
+
+h5 {
+    font-weight: lighter;
+}
+
+hr {
+    margin-right: 400px;
+}

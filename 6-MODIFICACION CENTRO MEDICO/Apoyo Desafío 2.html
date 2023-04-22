@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Centro Médico Ñuñoa</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<section>    
+    <br>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>    
+</section>
+<script>
+document.write('<h1>Estadisticas centro medico ñuñoa</h1>');
+
+var radiologia = [
+    {hora: '11:00', especialista: 'IGNACIO SCHULZ', paciente: 'FRANCISCA ROJAS', rut: '9878782-1', prevision: 'FONASA'},
+    {hora: '11:30', especialista: 'FEDERICO SUBERCASEAUX', paciente: 'PAMELA ESTRADA', rut: '15345241-3', prevision: 'ISAPRE'},
+    {hora: '15:00', especialista: 'FERNANDO WURTHZ', paciente: 'ARMANDO LUNA', rut: '16445345-9', prevision: 'ISAPRE'},
+    {hora: '15:30', especialista: 'ANA MARIA GODOY', paciente: 'MANUEL GODOY', rut: '17666419-0', prevision: 'FONASA'},
+    {hora: '16:00', especialista: 'PATRICIA SUAZO', paciente: 'RAMON ULLOA', rut: '14989389-K', prevision: 'FONASA'},
+];
+
+var traumatologia = [
+    {hora: '8:00',  especialista: 'MARIA PAZ ALTUZARRA', paciente: 'PAULA SANCHEZ',     rut: '15554774-5', prevision: 'FONASA'},
+    {hora: '10:00', especialista: 'RAUL ARAYA',          paciente: 'ANGÉLICA NAVAS',    rut: '15444147-9', prevision: 'ISAPRE'},
+    {hora: '10:30', especialista: 'MARIA ARRIAGADA',     paciente: 'ANA KLAPP',         rut: '17879423-9', prevision: 'ISAPRE'},
+    {hora: '11:00', especialista: 'ALEJANDRO BADILLA',   paciente: 'FELIPE MARDONES',   rut: '1547423-6', prevision: 'ISAPRE'},
+    {hora: '11:30', especialista: 'CECILIA BUDNIK',      paciente: 'DIEGO MARRE',       rut: '16554741-K', prevision: 'FONASA'},
+    {hora: '12:00', especialista: 'ARTURO CAVAGNARO',    paciente: 'CECILIA MENDEZ',    rut: '9747535-8', prevision: 'ISAPRE'},
+    {hora: '12:30', especialista: 'ANDRES KANACRI',      paciente: 'MARCIAL SUAZO',     rut: '11254785-5', prevision: 'ISAPRE'},
+];
+
+var dental = [
+    {hora: '8:30',  especialista: 'ANDREA ZUÑIGA',          paciente: 'MARCELA RETAMAL',rut: '11123425-6', prevision: 'ISAPRE'},
+    {hora: '11:00', especialista: 'MARIA PIA ZAÑARTU',      paciente: 'ANGEL MUÑOZ',    rut: '9878789-2',  prevision: 'ISAPRE'},
+    {hora: '11:30', especialista: 'SCARLETT WITTING',       paciente: 'MARIO KAST',     rut: '7998789-5',  prevision: 'FONASA'},
+    {hora: '13:00', especialista: 'FRANCISCO VON TEUBER',   paciente: 'KARIN FERNANDEZ',rut: '18887662-K', prevision: 'FONASA'},
+    {hora: '13:30', especialista: 'EDUARDO VIÑUELA',        paciente: 'HUGO SANCHEZ',   rut: '17665461-4', prevision: 'FONASA'},
+    {hora: '14:00', especialista: 'RAQUEL VILLASECA',       paciente: 'ANA SEPULVEDA',  rut: '14441281-0', prevision: 'ISAPRE'},
+];
+
+//Agregar código para el desafio 2 aquí
+
+//agregar 5 horas al arreglo de traumatología
+traumatologia.push(
+{   hora: "9:00",
+    especialista: "RENÉ POBLETE",
+    paciente: "ANA GELLONA",rut: "13123329-7",
+    prevision: "ISAPRE"
+},
+
+{
+    hora: "9:30",
+    especialista: "MARÍA SOLAR",
+    paciente: "RAMIRO ANDRADE",
+    rut: "12221451-k",
+    prevision: "FONASA",    
+},
+
+{
+    hora: "10:00",
+    especialista: "RAÚL LOYOLA",
+    paciente: "CARMEN ISLA",
+    rut: "10112348-3",
+    prevision: "ISAPRE",
+},
+
+{
+    hora: "10:30",
+    especialista: "ANTONIO LARENAS",
+    paciente: "PABLO LOAIZA",
+    rut: "13453234-1",
+    prevision: "ISAPRE",
+},
+
+{
+    hora: "12:00",
+    especialista: "MATÍAS ARAVENA",
+    paciente: "SUSANA POBLETE",
+    rut: "14345656-6",
+    prevision: "FONASA"
+});
+
+let agregados = traumatologia.map(function(traumatologiaMod){
+    return( `<tr><td>${traumatologiaMod.hora}</td><td> ${traumatologiaMod.especialista}</td> <td>${traumatologiaMod.paciente}</td><td> ${traumatologiaMod.rut}</td><td> ${traumatologiaMod.prevision}</td></tr>`)
+})
+
+//mostrar por pantalla cabecera de las tablas
+let tableHeader= `
+        <tr>
+            <th>Hora</th>
+            <th>Especialista</th>
+            <th>Paciente</th>
+            <th>Rut</th>
+            <th>Prevision</th>
+        </tr> 
+`;
+
+//eliminar el primer (shift) y último (pop) elemento del arreglo de radiología
+radiologia.shift();
+radiologia.pop();
+
+let eliminados = radiologia.map(function(radiologiaMod){
+    return( `<tr><td>${radiologiaMod.hora}</td><td> ${radiologiaMod.especialista}</td> <td>${radiologiaMod.paciente}</td><td> ${radiologiaMod.rut}</td><td> ${radiologiaMod.prevision}</td></tr>`)
+})
+
+//imprimir en HTML lista de consultas de dental (separado por un guión y con un salto de linea (join))
+const joinedHtml = dental.map((atencion)=> {
+    return `<p>${atencion.hora} - ${atencion.especialista} - ${atencion.paciente} - ${atencion.rut} - ${atencion.prevision}</p>`});
+
+//imprimir listado de todos los pacientes que se atendieron (solo nombres de pacientes, uno por cada parrafo (map))
+const pacientes = radiologia.map((lista)=>{
+    return `<li>${lista.paciente}</li>`;
+});
+
+const pacientes2 = traumatologia.map((lista2)=>{
+    return `<li>${lista2.paciente}</li>`;
+});
+
+
+const pacientes3 = dental.map((lista3)=>{
+    return `<li>${lista3.paciente}</li>`;
+});
+
+document.write(`
+    <div class="container">
+    <h2>Listado de traumatología actualizado</h2>
+    <table>
+        ${tableHeader}
+        ${agregados.join("")}
+    </table>
+    <br>
+   
+    <br>
+    <h2>Listado de radiología actualizado</h2>
+    <table>
+        ${tableHeader}
+        ${eliminados.join("")}
+    </table>
+    <br>
+    <br>
+    <h2>Listado de atenciones dentales</h2>
+    <br>
+    ${joinedHtml.join ("")}
+    <br>
+    <h2>Listado de pacientes</h2>
+    ${pacientes.join ("")}   
+    ${pacientes2.join("")}   
+    ${pacientes3.join("")}
+    <br>
+    </div>
+`
+)
+
+//filtrar a pacientes del área dental que se atienden por isapre (filter)
+const isapreDental = dental.filter((citaMedica) => {
+    if (citaMedica.prevision === "ISAPRE") {
+        return true;        
+    } else {
+        return false;
+    }    
+});
+
+document.write(`<h2>Pacienetes del área dental que se atienden por Isapre:</h2>`)
+for(let res of isapreDental){   
+    document.write(`${res.paciente} - ${res.prevision}<br>`);      
+}
+
+//filtrar a pacientes del área traumatología que se atienden por fonasa (filter)
+const fonasaTraumatologia = traumatologia.filter((citaMedica) => {
+    if (citaMedica.prevision === "FONASA") {
+        return true;
+    } else {
+        return false;
+    }
+});
+document.write(`<br><h2>Pacienetes del área traumatología que se atienden por Fonasa:</h2>`)
+for(let res2 of fonasaTraumatologia){    
+    document.write(`${res2.paciente} - ${res2.prevision}<br>`)     
+}
+document.write(`<br><hr>`)
+
+//Agregar código para el desafio 2 aquí
+
+document.write(`<p>Cantidad de atenciones para Radiología: ${radiologia.length}</p>`);
+document.write(`<p>Cantidad de atenciones para Traumatología: ${traumatologia.length}</p>`);
+document.write(`<p>Cantidad de atenciones para Dental: ${dental.length}</p>`);
+
+
+document.write(`<p>Primera atencion radiología: ${radiologia[0].paciente} - ${radiologia[0].prevision} | Última atención: ${radiologia[radiologia.length -1].paciente} - ${radiologia[radiologia.length -1].prevision}.</p>`);
+document.write(`<p>Primera atencion traumatología: ${traumatologia[0].paciente} - ${traumatologia[0].prevision} | Última atención: ${traumatologia[traumatologia.length -1].paciente} - ${traumatologia[traumatologia.length -1].prevision}.</p>`);
+document.write(`<p>Primera atencion dental: ${dental[0].paciente} - ${dental[0].prevision} | Última atención: ${dental[dental.length -1].paciente} - ${dental[dental.length -1].prevision}.</p>`);
+
+</script>
+<body>
+    
+</body>
+</html>
