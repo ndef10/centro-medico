@@ -27,6 +27,7 @@ usuarios registrados.
 - | 12:00 | MATIAS ARAVENA | SUSANA POBLETE | 14345656-6 | FONASA |
 
 2. Eliminar el primer y último elemento del arreglo de Radiología. (1 Punto)
+
 3. Imprimir en la página HTML, mediante document.write y/o la funciones que estime
 conveniente, la lista de consultas médicas de Dental. Sin embargo, debe hacerlo
 separando por un guión cada dato desplegado y cada fila de información debe estar
